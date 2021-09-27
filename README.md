@@ -1,23 +1,6 @@
-# dotNFT Marketing Website
+# tetra studios
 
-<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/2f87b92c-414f-4c1d-b2ba-a1469441fa70/deploy-status)](https://app.netlify.com/sites/dotnft/deploys) -->
-
-## Features
-
-- [x] Configurable
-- [x] TypeScript
-- [x] [Husky](https://github.com/typicode/husky) & [lint-staged](https://github.com/okonet/lint-staged) for autofix each commit
-- [x] Framer Motion animations
-- [x] styled-components + theme-ui for styling
-- [x] Polished for cool things
-- [x] Google Tag Manager
-- [x] SEO
-  - [x] Sitemap
-  - [x] Schema.org JSONLD
-  - [x] OpenGraph Tags
-  - [x] Twitter Tags
-- [x] Offline Support
-- [x] WebApp Manifest Support
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f316eeff-98e6-4e78-9574-6b2d21fda4d8/deploy-status)](https://app.netlify.com/sites/tetrashapes/deploys)
 
 ## Getting Started
 
