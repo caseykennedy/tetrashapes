@@ -15,6 +15,8 @@ import { Box, Flex, Heading, Text } from 'theme-ui'
 import Section from '../../components/Section'
 import TetraGeo from '../../components/TetraGeo'
 
+// ___________________________________________________________________
+
 const HomePage: React.FC = () => {
   return (
     <HomePageStyles>
@@ -26,31 +28,22 @@ const HomePage: React.FC = () => {
         </Heading>
       </Section> */}
       <Box className="canvas">
-        <Canvas camera={{ position: [-5, 2, 10], fov: 60 }}>
-          <ambientLight intensity={0.3} />
-          <directionalLight
-            castShadow={true}
-            position={[0, 10, 0]}
-            intensity={1.5}
-          />
-          <pointLight position={[-10, 0, -20]} intensity={0.5} />
-          <pointLight position={[0, -10, 0]} intensity={1.5} />
+        <Canvas camera={{ position: [0, 2, 10], fov: 60 }}>
           <TetraGeo
             flatShading={false}
             position={0}
             radius={2}
-            speed={0.017}
+            speed={0.007}
             wireframe={false}
           />
           <TetraGeo
             flatShading={false}
             position={0}
+            detail={1}
             radius={5}
-            speed={0.007}
+            speed={0.001}
             wireframe={true}
           />
-          <OrbitControls />
-          <FlyControls />
         </Canvas>
       </Box>
     </HomePageStyles>
@@ -58,6 +51,8 @@ const HomePage: React.FC = () => {
 }
 
 export default HomePage
+
+// ___________________________________________________________________
 
 const HomePageStyles = styled(Box)`
   position: relative;

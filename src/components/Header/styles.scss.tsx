@@ -11,8 +11,6 @@ import { Box, Flex } from 'theme-ui'
 export const Header = styled(Box)`
   overflow: visible;
   width: 100%;
-  position: sticky;
-  top: 0;
   z-index: 9999;
 
   a {

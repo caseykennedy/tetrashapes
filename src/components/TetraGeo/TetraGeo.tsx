@@ -18,7 +18,7 @@ type Props = {
 }
 
 const TetraGeo: React.FC<Props> = (props) => {
-  const { flatShading, wireframe, radius, speed } = props
+  const { detail, flatShading, wireframe, radius, speed } = props
   // This reference will give us direct access to the mesh so we can animate it
   const mesh = useRef<THREE.Mesh>()
 
@@ -42,10 +42,10 @@ const TetraGeo: React.FC<Props> = (props) => {
       onPointerOver={() => setHover(true)}
       onPointerOut={() => setHover(false)}
     >
-      <tetrahedronGeometry attach="geometry" args={[radius, 0]} />
+      <tetrahedronGeometry attach="geometry" args={[radius, detail]} />
       <meshNormalMaterial
         attach="material"
-        color={hovered ? 'teal' : '0xffff00'}
+        color={'0xffff00'}
         flatShading={flatShading}
         wireframe={wireframe}
       />
