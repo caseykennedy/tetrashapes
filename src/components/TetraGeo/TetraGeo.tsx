@@ -11,7 +11,7 @@ import { useFrame } from '@react-three/fiber'
 type Props = {
   detail?: number
   radius?: number
-  speed?: number
+  speed: number
   flatShading: boolean
   wireframe: boolean
   [x: string]: any

@@ -3,12 +3,12 @@
 // ___________________________________________________________________
 
 import * as React from 'react'
+import styled from 'styled-components'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, FlyControls } from '@react-three/drei'
 
 // Theme + ui
 import theme from '../../gatsby-plugin-theme-ui'
-import * as S from './styles.scss'
 import { Box, Flex, Heading, Text } from 'theme-ui'
 
 // components
@@ -17,7 +17,7 @@ import TetraGeo from '../../components/TetraGeo'
 
 const HomePage: React.FC = () => {
   return (
-    <S.HomePage>
+    <HomePageStyles>
       {/* <Section>
         <Heading as="h1" className="text--xs">
           A digital studio for
@@ -46,14 +46,27 @@ const HomePage: React.FC = () => {
             flatShading={false}
             position={0}
             radius={5}
+            speed={0.007}
             wireframe={true}
           />
           <OrbitControls />
           <FlyControls />
         </Canvas>
       </Box>
-    </S.HomePage>
+    </HomePageStyles>
   )
 }
 
 export default HomePage
+
+const HomePageStyles = styled(Box)`
+  position: relative;
+
+  .canvas {
+
+    top: 0;
+    left: 0;
+    height: 75vh;
+    width: 100%;
+  }
+`

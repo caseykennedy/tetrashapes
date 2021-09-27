@@ -17,17 +17,9 @@ import { Box, Flex, Heading, Text } from 'theme-ui'
 import Navigation from './Navigation'
 import MobileNav from './MobileNav'
 import Modal from '../Modal'
-import TetraGeo from '../../components/TetraGeo'
+import TetraGeo from '../TetraGeo'
 
 // ___________________________________________________________________
-
-const cursorProps = {
-  show: false,
-  blink: true,
-  element: '|',
-  hideWhenDone: true,
-  hideWhenDoneDelay: 1000,
-}
 
 const SymbolCanvas = () => {
   return (
