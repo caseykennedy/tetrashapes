@@ -39,7 +39,6 @@ const HomePage: React.FC = () => {
           <TetraGeo
             flatShading={false}
             position={0}
-            detail={1}
             radius={5}
             speed={0.001}
             wireframe={true}
