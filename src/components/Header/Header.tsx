@@ -61,8 +61,8 @@ const Header = () => {
             </S.Logo>
           </Link>
 
-          <S.Menu>
-            {/* <Navigation /> */}
+          {/* <S.Menu>
+            <Navigation />
 
             <S.Toggle onClick={toggleMenu} aria-label="toggle menu">
               <HamburgerMenu
@@ -77,9 +77,9 @@ const Header = () => {
                 animationDuration={0.333}
               />
             </S.Toggle>
-          </S.Menu>
+          </S.Menu> */}
         </Flex>
-        <Heading as="h1" mt={5} className="text--xs">
+        <Heading as="h1" mt={4} className="text--xs">
           A digital studio for
           <br />
           the decentralized web.

@@ -9,7 +9,7 @@ import { OrbitControls, FlyControls } from '@react-three/drei'
 
 // Theme + ui
 import theme from '../../gatsby-plugin-theme-ui'
-import { Box, Flex, Heading, Text } from 'theme-ui'
+import { Box } from 'theme-ui'
 
 // components
 import Section from '../../components/Section'
@@ -33,14 +33,15 @@ const HomePage: React.FC = () => {
             flatShading={false}
             position={0}
             radius={2}
-            speed={0.007}
+            speed={0.005}
             wireframe={false}
           />
           <TetraGeo
             flatShading={false}
             position={0}
             radius={5}
-            speed={0.001}
+            detail={1}
+            speed={0.003}
             wireframe={true}
           />
         </Canvas>
@@ -54,13 +55,18 @@ export default HomePage
 // ___________________________________________________________________
 
 const HomePageStyles = styled(Box)`
-  position: relative;
-
   .canvas {
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
     top: 0;
     left: 0;
-    height: 75vh;
+    height: 100vh;
     width: 100%;
+
+    div {
+      height: 75% !important;
+    }
   }
 `

@@ -19,7 +19,6 @@ export const Wrapper = styled.div`
 export const Main = styled.main`
   background: ${theme.colors.background};
   margin: 0 auto;
-  position: relative;
   max-height: 100%;
   min-height: 33vh;
   max-width: ${theme.siteWidth};

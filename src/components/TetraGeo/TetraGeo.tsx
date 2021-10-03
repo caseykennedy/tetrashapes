@@ -45,7 +45,7 @@ const TetraGeo: React.FC<Props> = (props) => {
       <tetrahedronGeometry attach="geometry" args={[radius, detail]} />
       <meshNormalMaterial
         attach="material"
-        color={'0xffff00'}
+        color={'#FFFF00'}
         flatShading={flatShading}
         wireframe={wireframe}
       />

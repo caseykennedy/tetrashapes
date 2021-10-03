@@ -18,13 +18,13 @@ const mailTo = 'mailto:info@dotnft.com'
 const Footer: React.FC = () => {
   return (
     <S.Footer>
-      <Flex px={theme.gutter.axis} className="footer__inner">
-        <Text color="midgray">
-          Building a new
-          <br />
-          internet together.
-        </Text>
-      </Flex>
+      <Text>
+        Building a new
+        <br />
+        internet together.
+      </Text>
+
+      <a href="mailto:info@tetrashapes.com">contact</a>
     </S.Footer>
   )
 }
