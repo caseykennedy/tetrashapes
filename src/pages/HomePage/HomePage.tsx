@@ -43,6 +43,7 @@ const HomePage: React.FC = () => {
             speed={0.003}
             wireframe={true}
           />
+          <OrbitControls />
         </Canvas>
       </Box>
     </HomePageStyles>
