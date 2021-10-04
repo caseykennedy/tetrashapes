@@ -6,7 +6,6 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import HamburgerMenu from 'react-hamburger-menu'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, FlyControls } from '@react-three/drei'
 
 // Theme + ui
 import theme from '../../gatsby-plugin-theme-ui'
@@ -52,7 +51,6 @@ const Header = () => {
         <Flex className="header-inner">
           <Link to="/" className="logo" aria-label="dotNFT, back to home">
             <S.Logo onClick={() => setNavOpen(false)}>
-              
               <Text className="wordmark" aria-label="dotNFT">
                 tetra
               </Text>

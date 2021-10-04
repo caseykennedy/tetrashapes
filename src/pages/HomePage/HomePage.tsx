@@ -12,7 +12,6 @@ import theme from '../../gatsby-plugin-theme-ui'
 import { Box } from 'theme-ui'
 
 // components
-import Section from '../../components/Section'
 import TetraGeo from '../../components/TetraGeo'
 
 // ___________________________________________________________________
@@ -32,15 +31,15 @@ const HomePage: React.FC = () => {
           <TetraGeo
             flatShading={false}
             position={0}
-            radius={2}
-            speed={0.007}
+            radius={1}
+            speed={0.01}
             wireframe={false}
           />
           <TetraGeo
             flatShading={false}
             position={0}
-            radius={5}
-            detail={1}
+            radius={4}
+            detail={0}
             speed={0.003}
             wireframe={true}
           />
@@ -64,9 +63,10 @@ const HomePageStyles = styled(Box)`
     left: 0;
     height: 100%;
     width: 100%;
+    /* z-index: -1; */
 
     div {
-      height: 60% !important;
+      height: 100% !important;
     }
   }
 `
