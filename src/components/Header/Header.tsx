@@ -33,11 +33,11 @@ const SymbolCanvas = () => {
       <pointLight position={[-10, 0, -20]} intensity={0.5} />
       <pointLight position={[0, -10, 0]} intensity={1.5} />
       <TetraGeo
-        flatShading={false}
+        flatShading={true}
         position={0}
         radius={5}
         speed={0.005}
-        wireframe={true}
+        wireframe={false}
       />
     </Canvas>
   )
@@ -52,9 +52,7 @@ const Header = () => {
         <Flex className="header-inner">
           <Link to="/" className="logo" aria-label="dotNFT, back to home">
             <S.Logo onClick={() => setNavOpen(false)}>
-              <Box className="symbol">
-                <SymbolCanvas />
-              </Box>
+              
               <Text className="wordmark" aria-label="dotNFT">
                 tetra
               </Text>

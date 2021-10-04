@@ -33,7 +33,7 @@ const HomePage: React.FC = () => {
             flatShading={false}
             position={0}
             radius={2}
-            speed={0.005}
+            speed={0.007}
             wireframe={false}
           />
           <TetraGeo
@@ -62,11 +62,11 @@ const HomePageStyles = styled(Box)`
     position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 
     div {
-      height: 75% !important;
+      height: 60% !important;
     }
   }
 `

@@ -3,28 +3,35 @@
 // ___________________________________________________________________
 
 import * as React from 'react'
-import { Link } from 'gatsby'
 
 // Theme + UI
 import * as S from './styles.scss'
 import theme from '../../gatsby-plugin-theme-ui'
-import { Box, Flex, Text, Heading } from 'theme-ui'
+import { Box, Flex } from 'theme-ui'
+
+// Components
+import Icon from '../Icons'
 
 // ___________________________________________________________________
 
-const getYear = () => new Date().getFullYear()
-const mailTo = 'mailto:info@dotnft.com'
+const mailTo = 'mailto:info@tetrashapes.com'
+const twitterHref = 'https://twitter.com/tetrashapes'
 
 const Footer: React.FC = () => {
   return (
     <S.Footer>
-      <Text>
-        Building a new
-        <br />
-        internet together.
-      </Text>
+      <Box sx={{ flex: 1 }}>
+        <Box mb={4}>Building a new internet together.</Box>
+        <a href={mailTo} className="contact">
+          contact us
+        </a>
+      </Box>
 
-      <a href="mailto:info@tetrashapes.com">contact</a>
+      <Flex sx={{ flex: 1, justifyContent: 'flex-end' }}>
+        <a href={twitterHref} target="_blank" rel="nofollow  noopener">
+          <Icon name="twitter" />
+        </a>
+      </Flex>
     </S.Footer>
   )
 }

@@ -66,12 +66,13 @@ type ThemeShape = {
 // ___________________________________________________________________
 
 const breakpoints: string[] = ['768px', '1025px']
+const border: string = '1px solid #898989'
 
 const theme: ThemeShape = {
   // Constants
   // ___________________________________________________________________
 
-  maxWidth: '1680px',
+  maxWidth: '100%',
   siteWidth: '100%',
 
   // Breakpoints
@@ -162,32 +163,17 @@ const theme: ThemeShape = {
 
   buttons: {
     primary: {
-      bg: 'primary',
-      color: 'white',
-      borderRadius: 0,
-      cursor: 'pointer',
-      fontSize: 2,
-      fontWeight: 600,
-      height: '64px',
-      py: 3,
-      px: 5,
-      '&:hover': {
-        bg: darken(0.15, '#0582FF'),
-      },
-    },
-    secondary: {
       bg: 'transparent',
-      color: 'white',
-      border: '1px solid',
-      borderColor: 'white',
+      color: 'midgray',
+      border: `${border}`,
+      borderColor: 'midgray',
       borderRadius: 0,
       cursor: 'pointer',
-      fontWeight: 700,
-      py: 3,
+      fontSize: 1,
+      py: 2,
       px: 4,
       '&:hover': {
-        bg: 'white',
-        color: 'text',
+        bg: 'midgray',
       },
     },
   },
@@ -211,7 +197,7 @@ const theme: ThemeShape = {
     },
   },
 
-  border: '1px solid #898989',
+  border,
   borderRadius: '2px',
   shadow: '0px 2px 1px rgba(0, 0, 0, 0.05)',
 
