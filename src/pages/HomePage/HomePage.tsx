@@ -30,20 +30,19 @@ const HomePage: React.FC = () => {
         <Canvas camera={{ position: [0, 2, 10], fov: 60 }}>
           <TetraGeo
             flatShading={false}
-            position={0}
+            position={[0, 1, 0]}
             radius={1}
             speed={0.01}
             wireframe={false}
           />
           <TetraGeo
             flatShading={false}
-            position={0}
+            position={[0, 1, 0]}
             radius={4}
             detail={0}
             speed={0.003}
             wireframe={true}
           />
-          <OrbitControls />
         </Canvas>
       </Box>
     </HomePageStyles>
@@ -59,7 +58,7 @@ const HomePageStyles = styled(Box)`
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
@@ -67,7 +66,7 @@ const HomePageStyles = styled(Box)`
     /* z-index: -1; */
 
     div {
-      height: 100% !important;
+      height: 80% !important;
     }
   }
 `
