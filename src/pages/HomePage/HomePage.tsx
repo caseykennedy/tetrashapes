@@ -18,7 +18,7 @@ import TetraGeo from '../../components/TetraGeo'
 
 const HomePage: React.FC = () => {
   return (
-    <HomePageStyles>
+    <StyledHomePage>
       {/* <Section>
         <Heading as="h1" className="text--xs">
           A digital studio for
@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
           />
         </Canvas>
       </Box>
-    </HomePageStyles>
+    </StyledHomePage>
   )
 }
 
@@ -53,7 +53,7 @@ export default HomePage
 
 // ___________________________________________________________________
 
-const HomePageStyles = styled(Box)`
+const StyledHomePage = styled(Box)`
   .canvas {
     display: flex;
     align-items: center;

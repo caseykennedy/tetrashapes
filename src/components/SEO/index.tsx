@@ -6,10 +6,10 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const settings = require('../../../config')
-
 import Facebook from './facebook'
 import Twitter from './twitter'
+
+import settings from '../../../config'
 
 // ___________________________________________________________________
 
@@ -32,6 +32,20 @@ const defaultProps = {
   product: false
 }
 
+type QueryProps = {
+  site: {
+    buildTime: string
+  }
+}
+
+const query = graphql`
+  query SEO {
+    site {
+      buildTime(formatString: "YYYY-MM-DD")
+    }
+  }
+`
+
 const SEO = ({
   banner,
   desc,
@@ -44,14 +58,14 @@ const SEO = ({
   node,
   article
 }: Props) => {
-  const { site } = useStaticQuery(query)
+  const { site }: QueryProps = useStaticQuery(query)
   const { buildTime } = site
 
   const seo = {
-    title: `${title}` || settings.title,
-    description: desc || settings.description,
-    image: `${banner || settings.banner}`,
-    url: `${settings.url}${pathname || ''}`
+    title: `${title}` || settings.siteTitle,
+    description: desc || settings.siteDescription,
+    image: banner || settings.banner,
+    url: `${settings.siteUrl}${pathname || ''}`
   }
 
   // schema.org in JSONLD format
@@ -61,7 +75,7 @@ const SEO = ({
   const schemaOrgProduct = {
     '@context': 'http://schema.org/',
     '@type': 'Product',
-    brand: settings.siteName,
+    brand: settings.ogSiteName,
     name: productName,
     image: seo.image,
     description: seo.description,
@@ -122,7 +136,7 @@ const SEO = ({
     {
       '@type': 'ListItem',
       item: {
-        '@id': settings.url,
+        '@id': settings.siteUrl,
         name: 'Homepage'
       },
       position: 1
@@ -153,7 +167,7 @@ const SEO = ({
         name: settings.author,
         logo: {
           '@type': 'ImageObject',
-          url: `${settings.banner.asset.url}`
+          url: `${settings.bannerUrl}`
         }
       },
       datePublished: node ? node.birthTime : '2019-03-10T10:30:00+01:00',
@@ -191,7 +205,7 @@ const SEO = ({
   return (
     <>
       <Helmet title={seo.title}>
-        <html lang={settings.language} />
+        <html lang={settings.siteLanguage} />
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
         <meta name={seo.title} content={seo.description} />
@@ -216,7 +230,7 @@ const SEO = ({
         title={seo.title}
         type={article ? 'article' : 'website'}
         url={seo.url}
-        locale={settings.language}
+        locale={settings.siteLanguage}
         name={settings.ogSiteName}
       />
       <Twitter
@@ -232,11 +246,3 @@ const SEO = ({
 export default SEO
 
 SEO.defaultProps = defaultProps
-
-const query = graphql`
-  query SEO {
-    site {
-      buildTime(formatString: "YYYY-MM-DD")
-    }
-  }
-`

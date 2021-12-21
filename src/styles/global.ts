@@ -1,5 +1,4 @@
 // Global styles
-
 // ___________________________________________________________________
 
 import { createGlobalStyle } from 'styled-components'

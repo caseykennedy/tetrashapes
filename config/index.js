@@ -3,7 +3,7 @@ module.exports = {
 
   // Banner
   // banner: settings.banner.asset.fluid.src,
-  banner: '',
+  bannerUrl: '',
   
 
   siteTitle: 'Tetra', // Navigation and Site Title
