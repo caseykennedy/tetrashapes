@@ -14,7 +14,7 @@ import Icon from '../Icons'
 
 // ___________________________________________________________________
 
-const mailTo = 'mailto:info@tetrashapes.com'
+const mailTo = 'mailto:taylor@tetrashapes.com'
 const twitterHref = 'https://twitter.com/tetrashapes'
 
 const Footer: React.FC = () => {

@@ -38,6 +38,7 @@ const GlobalStyles = createGlobalStyle`
   
   html,
   body {
+    background: ${theme.colors.background};
     border: 0;
     margin: 0;
     padding: 0;
