@@ -2,9 +2,7 @@ module.exports = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
 
   // Banner
-  // banner: settings.banner.asset.fluid.src,
   bannerUrl: '',
-  
 
   siteTitle: 'Tetra', // Navigation and Site Title
   siteTitleAlt: 'Tetra', // Alternative Site title for SEO
@@ -26,5 +24,5 @@ module.exports = {
 
   // Manifest and Progress color
   themeColor: '#FFFFFF',
-  backgroundColor: '#000000'
+  backgroundColor: '#000000',
 }

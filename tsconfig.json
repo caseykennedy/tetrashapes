@@ -1,4 +1,12 @@
 {
+  "exclude": ["node_modules", "**/node_modules", "**/.cache/*", "**/public"],
+  "include": [
+    "./src/",
+    ".eslintrc.js",
+    "**/gatsby/**/*",
+    "**/src/**/*",
+    "**/index.ts"
+  ],
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
@@ -7,8 +15,8 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "esnext",
-    "jsx": "preserve",
-    "lib": ["dom", "es2015", "es2017"],
+    "jsx": "react",
+    "lib": ["dom", "es2015", "es2017", "es2019"],
     "strict": true,
     "noEmit": true,
     "isolatedModules": true,
@@ -16,12 +24,17 @@
     "skipLibCheck": true,
     "noUnusedLocals": false,
     "noUnusedParameters": true,
-    "removeComments": false,
+    "removeComments": true,
     "preserveConstEnums": true,
-    "resolveJsonModule": true
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": ["./src/**/*", "./cypress/**/*"]
+    "resolveJsonModule": true,
+
+    "checkJs": true,
+    "declaration": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true
+  }
 }

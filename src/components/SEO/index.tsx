@@ -19,22 +19,22 @@ type Props = {
   sku?: string
 } & typeof defaultProps
 
+type QueryProps = {
+  site: {
+    buildTime: string
+  }
+}
+
 const defaultProps = {
   title: '',
   desc: '',
   pathname: '',
   node: {
     modifiedTime: '',
-    birthTime: ''
+    birthTime: '',
   },
   article: false,
-  product: false
-}
-
-type QueryProps = {
-  site: {
-    buildTime: string
-  }
+  product: false,
 }
 
 const query = graphql`
@@ -55,7 +55,7 @@ const SEO = ({
   sku,
   pathname,
   node,
-  article
+  article,
 }: Props) => {
   const { site }: QueryProps = useStaticQuery(query)
   const { buildTime } = site
@@ -64,7 +64,7 @@ const SEO = ({
     title: `${title}` || settings.siteTitle,
     description: desc || settings.siteDescription,
     image: banner || settings.bannerUrl,
-    url: `${settings.siteUrl}${pathname || ''}`
+    url: `${settings.siteUrl}${pathname || ''}`,
   }
 
   // schema.org in JSONLD format
@@ -83,7 +83,7 @@ const SEO = ({
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5',
-      reviewCount: '5'
+      reviewCount: '5',
     },
     offers: {
       '@type': 'Offer',
@@ -91,8 +91,8 @@ const SEO = ({
       price: `${price}`,
       priceValidUntil: '',
       url: seo.url,
-      availability: 'http://schema.org/InStock'
-    }
+      availability: 'http://schema.org/InStock',
+    },
   }
 
   const schemaOrgWebPage = {
@@ -106,27 +106,27 @@ const SEO = ({
     name: settings.siteTitle,
     author: {
       '@type': 'Person',
-      name: settings.author
+      name: settings.author,
     },
     copyrightHolder: {
       '@type': 'Person',
-      name: settings.author
+      name: settings.author,
     },
     copyrightYear: '2019',
     creator: {
       '@type': 'Person',
-      name: settings.author
+      name: settings.author,
     },
     publisher: {
       '@type': 'Person',
-      name: settings.author
+      name: settings.author,
     },
     datePublished: '2019-03-10T10:30:00+01:00',
     dateModified: buildTime,
     image: {
       '@type': 'ImageObject',
-      url: `${settings.bannerUrl}`
-    }
+      url: `${settings.bannerUrl}`,
+    },
   }
 
   // Initial breadcrumb list
@@ -136,10 +136,10 @@ const SEO = ({
       '@type': 'ListItem',
       item: {
         '@id': settings.siteUrl,
-        name: 'Homepage'
+        name: 'Homepage',
       },
-      position: 1
-    }
+      position: 1,
+    },
   ]
 
   let schemaArticle = null
@@ -150,24 +150,24 @@ const SEO = ({
       '@type': 'Article',
       author: {
         '@type': 'Person',
-        name: settings.author
+        name: settings.author,
       },
       copyrightHolder: {
         '@type': 'Person',
-        name: settings.author
+        name: settings.author,
       },
       copyrightYear: '2019',
       creator: {
         '@type': 'Person',
-        name: settings.author
+        name: settings.author,
       },
       publisher: {
         '@type': 'Organization',
         name: settings.author,
         logo: {
           '@type': 'ImageObject',
-          url: `${settings.bannerUrl}`
-        }
+          url: `${settings.bannerUrl}`,
+        },
       },
       datePublished: node ? node.birthTime : '2019-03-10T10:30:00+01:00',
       dateModified: node ? node.modifiedTime : '2019-03-10T10:30:00+01:00',
@@ -178,18 +178,18 @@ const SEO = ({
       name: seo.title,
       image: {
         '@type': 'ImageObject',
-        url: seo.image
+        url: seo.image,
       },
-      mainEntityOfPage: seo.url
+      mainEntityOfPage: seo.url,
     }
     // Push current blogpost into breadcrumb list
     itemListElement.push({
       '@type': 'ListItem',
       item: {
         '@id': seo.url,
-        name: seo.title
+        name: seo.title,
       },
-      position: 5
+      position: 5,
     })
   }
 
@@ -198,7 +198,7 @@ const SEO = ({
     '@type': 'BreadcrumbList',
     description: 'Breadcrumbs list',
     name: 'Breadcrumbs',
-    itemListElement
+    itemListElement,
   }
 
   return (

@@ -2,13 +2,14 @@
 
 // ___________________________________________________________________
 
-import { Box, Flex } from 'theme-ui'
+import { Flex } from 'theme-ui'
 import styled from 'styled-components'
 import theme from '../../gatsby-plugin-theme-ui'
 
 // ___________________________________________________________________
 
-export const Header = styled(Box)`
+export const Header = styled.header`
+  padding: ${theme.space[4]};
   overflow: visible;
   width: 100%;
   z-index: 9999;

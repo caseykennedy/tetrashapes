@@ -16,7 +16,7 @@ type Props = {
   [x: string]: unknown
 }
 
-const TetraGeo: React.FC<Props> = (props) => {
+const TetraGeo = (props: Props) => {
   const { detail, flatShading, wireframe, radius, speed } = props
   // This reference will give us direct access to the mesh so we can animate it
   const mesh = useRef<THREE.Mesh>()
@@ -62,7 +62,7 @@ const defaultProps = {
   radius: 1,
   speed: 0.006,
   flatShading: true,
-  wireframe: false
+  wireframe: false,
 }
 
 TetraGeo.defaultProps = defaultProps

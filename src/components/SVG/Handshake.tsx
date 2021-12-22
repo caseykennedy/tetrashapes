@@ -32,4 +32,3 @@ const Handshake = ({ fill }: Props) => (
 )
 
 export default Handshake
-
