@@ -39,3 +39,5 @@ export const Footer = styled.footer`
     }
   }
 `
+
+export default Footer

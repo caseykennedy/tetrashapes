@@ -1,20 +1,12 @@
 // Accordion Styles:
-
 // ___________________________________________________________________
 
-// Core
+import { darken } from 'polished'
 import styled from 'styled-components'
-
-// Theme
+import { Box, Flex } from 'theme-ui'
 import theme from '../../gatsby-plugin-theme-ui'
 
-// UI
-import { Box, Flex } from 'theme-ui'
-
-// Begin Styles
 // ___________________________________________________________________
-
-// export const AccordionContainer = styled.div<{ chevronColor: string }>`
 
 export const AccordionContainer = styled.div`
   border: ${theme.border};
@@ -22,27 +14,17 @@ export const AccordionContainer = styled.div`
   margin-bottom: ${theme.space[3]};
   position: relative;
   width: 100%;
-
-  /* &:first-child {
-    border-top: none;
-  } */
 `
 
 export const AccordionInner = styled.div<{bg?: string}>`
   /* background: ${p => p.bg}; */
   display: flex;
   flex-direction: column;
-
-  .rotate {
-    transform-origin: center;
-    transform: rotate(180deg);
-  }
 `
 
 export const AccordionToggle = styled(Flex)<{ bg?: string, colorActive?: string, color?: string}>`
   align-items: center;
   justify-content: space-between;
-  /* background: ${theme.colors.white}; */
   color: ${p => p.color};
   cursor: pointer;
 
@@ -52,11 +34,15 @@ export const AccordionToggle = styled(Flex)<{ bg?: string, colorActive?: string,
   &:last-child {
     margin-bottom: 0;
   }
+
+  &:hover {
+    background: ${theme.colors.highlight};
+  }
 `
 
 export const AccordionContent = styled(Box)`
   overflow: hidden;
-  transition: max-height ${theme.transition.global};
+  transition: ${theme.transition.all};
 
   .content {
     flex-wrap: wrap;
@@ -65,15 +51,22 @@ export const AccordionContent = styled(Box)`
   }
 `
 
-export const Carat = styled(Box)<{ chevronColor?: string, chevronWidth?: string }>`
+export const Carat = styled(Box)<{ caratColor?: string, caratWidth?: string }>`
   display: none;
+  transition: ${theme.transition.all};
 
   @media ${theme.mq.tablet} {
-    display: block;
+    display: flex;
+    align-items: center;
+  }
+
+  &.rotate {
+    transform-origin: center;
+    transform: rotate(90deg);
   }
 
   svg {
-    fill: ${p => p.chevronColor};
-    width: ${p => p.chevronWidth ? p.chevronWidth : theme.space[6]};
+    fill: ${p => p.caratColor};
+    width: ${p => p.caratWidth ? p.caratWidth : theme.space[3]};
   }
 `

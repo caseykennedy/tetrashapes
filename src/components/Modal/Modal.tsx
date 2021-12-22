@@ -1,9 +1,8 @@
 // Modal:
-
 // ___________________________________________________________________
 
 import React from 'react'
-import { default as ReactModal } from 'react-responsive-modal'
+import ReactModal from 'react-responsive-modal'
 import theme from '../../gatsby-plugin-theme-ui'
 
 // ___________________________________________________________________
@@ -11,32 +10,8 @@ import theme from '../../gatsby-plugin-theme-ui'
 type ModalProps = {
   children: React.ReactNode
   open: boolean
-  close: () => any
+  close: () => void
 } & typeof defaultProps
-
-const defaultProps = {}
-
-const Modal: React.FC<ModalProps> = ({ children, open, close }) => {
-  return (
-    <ReactModal
-      animationDuration={100}
-      open={open}
-      onClose={close}
-      styles={modalStyles}
-      focusTrapped={false}
-      center={true}
-      showCloseIcon={false}
-    >
-      {children}
-    </ReactModal>
-  )
-}
-
-export default Modal
-
-// ___________________________________________________________________
-
-Modal.defaultProps = defaultProps
 
 const modalStyles = {
   overlay: {
@@ -52,3 +27,25 @@ const modalStyles = {
     width: '100%',
   },
 }
+
+const Modal = ({ children, open, close }: ModalProps) => (
+  <ReactModal
+    animationDuration={100}
+    open={open}
+    onClose={close}
+    styles={modalStyles}
+    focusTrapped={false}
+    center={true}
+    showCloseIcon={false}
+  >
+    {children}
+  </ReactModal>
+)
+
+export default Modal
+
+// ___________________________________________________________________
+
+const defaultProps = {}
+
+Modal.defaultProps = defaultProps

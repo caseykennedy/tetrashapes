@@ -1,5 +1,4 @@
 // SEO Component
-
 // ___________________________________________________________________
 
 import React from 'react'
@@ -14,7 +13,7 @@ import settings from '../../../config'
 // ___________________________________________________________________
 
 type Props = {
-  banner?: string
+  banner?: string | undefined
   price?: number
   productName?: string
   sku?: string
@@ -64,7 +63,7 @@ const SEO = ({
   const seo = {
     title: `${title}` || settings.siteTitle,
     description: desc || settings.siteDescription,
-    image: banner || settings.banner,
+    image: banner || settings.bannerUrl,
     url: `${settings.siteUrl}${pathname || ''}`
   }
 
@@ -99,12 +98,12 @@ const SEO = ({
   const schemaOrgWebPage = {
     '@context': 'http://schema.org',
     '@type': !product ? 'WebPage' : 'Product',
-    url: settings.url,
-    headline: settings.headline,
-    inLanguage: settings.language,
-    mainEntityOfPage: settings.url,
-    description: settings.description,
-    name: settings.title,
+    url: settings.siteUrl,
+    headline: settings.siteHeadline,
+    inLanguage: settings.siteLanguage,
+    mainEntityOfPage: settings.siteUrl,
+    description: settings.siteDescription,
+    name: settings.siteTitle,
     author: {
       '@type': 'Person',
       name: settings.author
@@ -126,7 +125,7 @@ const SEO = ({
     dateModified: buildTime,
     image: {
       '@type': 'ImageObject',
-      url: `${settings.banner}`
+      url: `${settings.bannerUrl}`
     }
   }
 

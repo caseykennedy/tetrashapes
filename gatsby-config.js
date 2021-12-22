@@ -1,9 +1,20 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
-
+const path = require('path')
 const config = require('./config')
+
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+
+// eslint
+// Get paths of Gatsby's required rules, which as of writing is located at:
+// https://github.com/gatsbyjs/gatsby/tree/fbfe3f63dec23d279a27b54b4057dd611dce74bb/packages/
+// gatsby/src/utils/eslint-rules
+const gatsbyRequiredRules = path.join(
+  process.cwd(),
+  'node_modules',
+  'gatsby',
+  'dist',
+  'utils',
+  'eslint-rules'
+)
 
 module.exports = {
   flags: { PRESERVE_WEBPACK_CACHE: true },
@@ -11,6 +22,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: config.siteUrl + pathPrefix,
     pathPrefix,
+    banner: config.bannerUrl,
     title: config.siteTitle,
     titleAlt: config.siteTitleAlt,
     description: config.siteDescription,
@@ -24,16 +36,25 @@ module.exports = {
     facebook: config.ogSiteName,
   },
   plugins: [
+    'gatsby-plugin-typescript',
+    'babel-plugin-styled-components',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-offline',
-    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        // Gatsby required rules directory
+        rulePaths: [gatsbyRequiredRules],
+        // Default settings that may be ommitted or customized
+        stages: ['develop'],
+        extensions: ['js', 'jsx', 'ts', 'tsx'],
+        exclude: ['node_modules', 'bower_components', '.cache', 'public'],
+        // Any additional eslint-webpack-plugin options below
+        // ...
+      },
+    },
+    'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -44,10 +65,23 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'content',
+        path: `${__dirname}/content`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'images',
         path: `${__dirname}/src/images`,
       },
     },
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -59,7 +93,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
-        color: `#0582FF`,
+        color: `#78FFF2`,
         showSpinner: false,
       },
     },

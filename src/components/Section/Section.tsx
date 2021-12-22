@@ -1,11 +1,7 @@
 // Section:
-// Global Section component
-
 // ___________________________________________________________________
 
-// Core
 import * as React from 'react'
-import styled from 'styled-components'
 import { Box } from 'theme-ui'
 import theme from '../../gatsby-plugin-theme-ui'
 
@@ -14,7 +10,7 @@ import theme from '../../gatsby-plugin-theme-ui'
 type Props = {
   bg?: string
   border?: boolean
-  children: React.ReactNode
+  children?: React.ReactNode
   className?: string
   color?: string
   maxWidth?: number | number[] | string | string[]
@@ -26,7 +22,24 @@ type Props = {
   overflow?: string
 }
 
-const Section: React.FC<Props> = ({
+type RowProps = {
+  children: React.ReactChild
+}
+
+export const Row = ({ children }: RowProps) => (
+  <Box
+    sx={{
+      pb: [6, 7, 7],
+      '&:last-child': {
+        pb: 0,
+      },
+    }}
+  >
+    {children}
+  </Box>
+)
+
+const Section = ({
   bg,
   border,
   children,
@@ -39,7 +52,7 @@ const Section: React.FC<Props> = ({
   pl,
   id,
   overflow,
-}) => (
+}: Props) => (
   <Box
     as="section"
     id={id}
@@ -49,16 +62,16 @@ const Section: React.FC<Props> = ({
       color,
       pt,
       pb,
-      borderTop: border ? theme.border : `none`,
-      overflow: overflow ? overflow : `visible`,
-      position: `relative`,
-      width: `100%`,
+      borderTop: border ? theme.border : 'none',
+      overflow: overflow || 'visible',
+      position: 'relative',
+      width: '100%',
     }}
   >
     <Box
       sx={{
         boxSizing: 'content-box',
-        maxWidth: maxWidth ? maxWidth : theme.maxWidth,
+        maxWidth: maxWidth || theme.maxWidth,
         mx: 'auto',
         pr,
         pl,

@@ -45,3 +45,5 @@ export const Nav = styled.nav`
     }
   }
 `
+
+export default Nav

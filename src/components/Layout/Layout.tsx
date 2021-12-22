@@ -1,5 +1,4 @@
 // Layout:
-
 // ___________________________________________________________________
 
 import React, { useRef } from 'react'
@@ -22,9 +21,8 @@ export type LayoutProps = {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  // eslint-disable-next-line no-console
   console.log(
-    `%c dotNFT | crafted with care | caseykennedy.hns.to `,
+    `%c tetra | crafted with care | caseykennedy.hns.to `,
     `background: #78FFF2; color: #000000`
   )
   return (

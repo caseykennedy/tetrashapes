@@ -2,9 +2,9 @@
 
 // ___________________________________________________________________
 
+import { Flex } from 'theme-ui'
 import styled from 'styled-components'
 import theme from '../../gatsby-plugin-theme-ui'
-import { Flex } from 'theme-ui'
 
 // ___________________________________________________________________
 
@@ -16,3 +16,5 @@ export const HandshakeBadge = styled(Flex)`
     margin: 0 ${theme.space[2]};
   }
 `
+
+export default HandshakeBadge

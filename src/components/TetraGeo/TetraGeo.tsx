@@ -1,5 +1,4 @@
 // Tetrahedron geometry:
-
 // ___________________________________________________________________
 
 import React, { useRef, useState } from 'react'
@@ -14,7 +13,7 @@ type Props = {
   speed: number
   flatShading: boolean
   wireframe: boolean
-  [x: string]: any
+  [x: string]: unknown
 }
 
 const TetraGeo: React.FC<Props> = (props) => {
@@ -29,6 +28,7 @@ const TetraGeo: React.FC<Props> = (props) => {
   // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => {
     if (mesh.current !== undefined) {
+      // eslint-disable-next-line no-multi-assign
       mesh.current.rotation.x = mesh.current.rotation.y += speed
     }
   })
@@ -45,7 +45,7 @@ const TetraGeo: React.FC<Props> = (props) => {
       <tetrahedronGeometry attach="geometry" args={[radius, detail]} />
       <meshNormalMaterial
         attach="material"
-        color={'#FFFF00'}
+        color="#FFFF00"
         flatShading={flatShading}
         wireframe={wireframe}
       />

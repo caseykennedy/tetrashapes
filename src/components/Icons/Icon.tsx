@@ -9,27 +9,21 @@ import React from 'react'
 import IconStyle from './styles.scss'
 
 // Icons
-// TODO: alphabetize
-import Hamburger from './SVG/Hamburger'
-import Facebook from './SVG/Facebook'
-import Instagram from './SVG/Instagram'
-import Twitter from './SVG/Twitter'
-import NextArrow from './SVG/NextArrow'
-import Bag from './SVG/Bag'
 import Carat from './SVG/Carat'
-
-
+import Chevron from './SVG/Chevron'
+import Checkmark from './SVG/Checkmark'
 import Document from './SVG/Document'
 import Download from './SVG/Download'
 import ExternalLink from './SVG/ExternalLink'
-
+import Facebook from './SVG/Facebook'
 import GridView from './SVG/GridView'
+import Instagram from './SVG/Instagram'
 import ListView from './SVG/ListView'
-
+import NextArrow from './SVG/NextArrow'
 import Pdf from './SVG/Pdf'
 import Plus from './SVG/Plus'
 import Pin from './SVG/Pin'
-
+import Twitter from './SVG/Twitter'
 import Youtube from './SVG/Youtube'
 
 // ___________________________________________________________________
@@ -41,7 +35,7 @@ type Props = {
   fas?: string
 }
 
-const Icon: React.FC<Props> = ({ name, className, color, fas }) => {
+const Icon = ({ name, className, color, fas }: Props) => {
   switch (name) {
     case 'arrow':
       return (
@@ -53,6 +47,18 @@ const Icon: React.FC<Props> = ({ name, className, color, fas }) => {
       return (
         <IconStyle color={color} className={className}>
           <Carat />
+        </IconStyle>
+      )
+    case 'chevron':
+      return (
+        <IconStyle color={color} className={className}>
+          <Chevron />
+        </IconStyle>
+      )
+    case 'checkmark':
+      return (
+        <IconStyle color={color} className={className}>
+          <Checkmark />
         </IconStyle>
       )
     case 'document':
@@ -85,22 +91,10 @@ const Icon: React.FC<Props> = ({ name, className, color, fas }) => {
           <GridView />
         </IconStyle>
       )
-    case 'hamburger':
-      return (
-        <IconStyle color={color} className={className}>
-          <Hamburger />
-        </IconStyle>
-      )
     case 'instagram':
       return (
         <IconStyle color={color} className={className}>
           <Instagram />
-        </IconStyle>
-      )
-    case 'bag':
-      return (
-        <IconStyle color={color} className={className}>
-          <Bag />
         </IconStyle>
       )
     case 'listView':

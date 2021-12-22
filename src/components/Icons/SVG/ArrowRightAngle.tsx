@@ -1,4 +1,3 @@
-import theme from '@/../config/theme'
 // Arrow Right Angle Icon:
 
 import React from 'react'

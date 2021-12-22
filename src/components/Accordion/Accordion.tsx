@@ -1,10 +1,9 @@
 // Accordion:
-
 // ___________________________________________________________________
 
-import React, { useState, useRef } from 'react'
+import React, { useCallback, useEffect, useState, useRef } from 'react'
 
-import { Text, Box } from 'theme-ui'
+import { Heading } from 'theme-ui'
 import Icon from '../Icons'
 
 import theme from '../../gatsby-plugin-theme-ui'
@@ -17,13 +16,12 @@ type Props = {
   children: React.ReactNode
   title: string
   color?: string
-  chevronColor?: string
-  chevronWidth?: string
-  borderColor?: string
-  borderTop?: boolean
+  caratColor?: string
+  caratWidth?: string
   colorActive?: string
   bg?: string
   fontSize?: number | number[] | string
+  fontWeight?: number | string
   pt?: number | number[] | string
   pb?: number | number[] | string
   pr?: number | number[] | string
@@ -32,22 +30,23 @@ type Props = {
 
 // ___________________________________________________________________
 
-const Accordion: React.FC<Props> = ({
+const Accordion = ({
   active,
   bg,
-  chevronColor,
-  chevronWidth,
+  caratColor,
+  caratWidth,
   children,
   color,
   colorActive,
   fontSize,
+  fontWeight,
   pt,
   pb,
   pr,
   pl,
   title,
-}) => {
-  // Reference the accordion content height
+}: Props) => {
+  const refToggle = useRef<HTMLDivElement>(null)
   const refContent = useRef<HTMLDivElement>(null)
 
   let activeState
@@ -68,10 +67,9 @@ const Accordion: React.FC<Props> = ({
   const [setHeight, setHeightState] = useState(heightState)
   const [setRotate, setRotateState] = useState(rotateState)
 
-  // Toggle classes / height
-  function toggleAccordion() {
+  const toggleAccordion = useCallback(() => {
     setActiveState(setActive === '' ? 'active' : '')
-    if (null !== refContent) {
+    if (refContent !== null) {
       setHeightState(
         setActive === 'active'
           ? '0px'
@@ -81,13 +79,20 @@ const Accordion: React.FC<Props> = ({
     setRotateState(
       setActive === 'active' ? 'accordion-icon' : 'accordion-icon rotate'
     )
-  }
+  }, [setActive])
+
+  useEffect(() => {
+    const currentToggler = refToggle.current
+    currentToggler?.addEventListener('click', toggleAccordion)
+    return () => currentToggler?.removeEventListener('click', toggleAccordion)
+  }, [toggleAccordion])
+
   return (
     <S.AccordionContainer>
       <S.AccordionInner>
         <S.AccordionToggle
+          ref={refToggle}
           className={setActive}
-          onClick={toggleAccordion}
           color={color}
           colorActive={colorActive}
           bg={setActive === 'active' ? bg : 'transparent'}
@@ -96,15 +101,15 @@ const Accordion: React.FC<Props> = ({
           pb={pb}
           pl={pl}
         >
-          <Text className="title" sx={{ fontSize, pr: [0, 6] }}>
+          <Heading sx={{ fontSize, fontWeight, mb: 0, pr: [0, 6] }}>
             {title}
-          </Text>
+          </Heading>
           <S.Carat
             className={setRotate}
-            chevronColor={chevronColor}
-            chevronWidth={chevronWidth}
+            caratColor={caratColor}
+            caratWidth={caratWidth}
           >
-            <Icon name="carat" color="black" />
+            <Icon name="chevron" />
           </S.Carat>
         </S.AccordionToggle>
         <S.AccordionContent
@@ -124,18 +129,16 @@ export default Accordion
 // ___________________________________________________________________
 
 const defaultProps = {
-  pt: theme.gutter.axis,
-  pb: theme.gutter.axis,
-  pr: theme.gutter.axis,
-  pl: theme.gutter.axis,
+  pt: [4, 5, 5],
+  pb: [4, 5, 5],
+  pr: [4, 5, 5],
+  pl: [4, 5, 5],
   title: 'title',
   color: theme.colors.text,
   colorActive: theme.colors.text,
   fontSize: [3, 4],
-  chevronColor: theme.colors.text,
-  chevronWidth: theme.space[5],
-  borderColor: theme.colors.text,
-  borderTop: false,
+  caratColor: theme.colors.text,
+  caratWidth: theme.space[4],
 }
 
 Accordion.defaultProps = defaultProps

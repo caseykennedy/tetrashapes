@@ -1,10 +1,5 @@
 // Theme / Design system:
 
-import { darken } from 'polished'
-
-// Types
-// ___________________________________________________________________
-
 type ThemeShape = {
   breakpoints: string[]
   mq: {
@@ -31,7 +26,7 @@ type ThemeShape = {
   }
   buttons: {
     [key: string]: {
-      [key: string]: any
+      [key: string]: unknown
     }
   }
   maxWidth: string
@@ -66,15 +61,9 @@ type ThemeShape = {
 // ___________________________________________________________________
 
 const breakpoints: string[] = ['768px', '1025px']
-const border: string = '1px solid #898989'
+const border = '1px solid #898989'
 
 const theme: ThemeShape = {
-  // Constants
-  // ___________________________________________________________________
-
-  maxWidth: '100%',
-  siteWidth: '100%',
-
   // Breakpoints
   // ___________________________________________________________________
 
@@ -120,13 +109,40 @@ const theme: ThemeShape = {
     '18rem', // 13
   ],
 
-  // Left/Right gutter
+  // Gutter
+  // ___________________________________________________________________
+
   gutter: {
     mobile: 4,
     tablet: 5,
     desktop: 5,
     vertical: [4],
     axis: [4],
+  },
+
+  // Constants
+  // ___________________________________________________________________
+
+  maxWidth: '100%',
+  siteWidth: '100%',
+  border,
+  borderRadius: '2px',
+  shadow: '0px 2px 1px rgba(0, 0, 0, 0.05)',
+
+  grid: {
+    gap: '0.5rem',
+  },
+
+  transition: {
+    all: 'all 0.11s ease-in-out 0s',
+    global: '0.11s ease-in-out 0s',
+  },
+
+  transform: {
+    matrix: {
+      from: 'matrix(1, 0, 0, 1, 24, 0)',
+      to: 'matrix(1, 0, 0, 1, 0, 0)',
+    },
   },
 
   // Typography
@@ -178,28 +194,8 @@ const theme: ThemeShape = {
     },
   },
 
-  // Base
+  // Root
   // ___________________________________________________________________
-
-  grid: {
-    gap: '0.5rem',
-  },
-
-  transition: {
-    all: 'all 0.11s ease-in-out 0s',
-    global: '0.11s ease-in-out 0s',
-  },
-
-  transform: {
-    matrix: {
-      from: 'matrix(1, 0, 0, 1, 24, 0)',
-      to: 'matrix(1, 0, 0, 1, 0, 0)',
-    },
-  },
-
-  border,
-  borderRadius: '2px',
-  shadow: '0px 2px 1px rgba(0, 0, 0, 0.05)',
 
   root: {
     mouseX: 'var(--mouse-x)',

@@ -1,46 +1,20 @@
 // Header
-
 // ___________________________________________________________________
 
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import HamburgerMenu from 'react-hamburger-menu'
-import { Canvas } from '@react-three/fiber'
 
 // Theme + ui
+import { Box, Flex, Heading, Text } from 'theme-ui'
 import theme from '../../gatsby-plugin-theme-ui'
 import * as S from './styles.scss'
-import { Box, Flex, Heading, Text } from 'theme-ui'
 
 // Components
-import Navigation from './Navigation'
+// import Navigation from './Navigation'
 import MobileNav from './MobileNav'
 import Modal from '../Modal'
-import TetraGeo from '../TetraGeo'
 
 // ___________________________________________________________________
-
-const SymbolCanvas = () => {
-  return (
-    <Canvas camera={{ position: [-5, 2, 10], fov: 60 }}>
-      <ambientLight intensity={0.3} />
-      <directionalLight
-        castShadow={true}
-        position={[0, 10, 0]}
-        intensity={1.5}
-      />
-      <pointLight position={[-10, 0, -20]} intensity={0.5} />
-      <pointLight position={[0, -10, 0]} intensity={1.5} />
-      <TetraGeo
-        flatShading={true}
-        position={0}
-        radius={5}
-        speed={0.005}
-        wireframe={false}
-      />
-    </Canvas>
-  )
-}
 
 const Header = () => {
   const [isNavOpen, setNavOpen] = useState(false)
