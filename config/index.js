@@ -23,6 +23,6 @@ module.exports = {
   googleTagID: 'GTM-56KNG2F',
 
   // Manifest and Progress color
-  themeColor: '#FFFFFF',
+  themeColor: '#000000',
   backgroundColor: '#000000',
 }
