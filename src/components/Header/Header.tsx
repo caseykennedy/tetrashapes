@@ -12,6 +12,7 @@ import * as S from './styles.scss'
 // Components
 import MobileNav from './MobileNav'
 import Modal from '../Modal'
+import Logo from '../SVG/Logo'
 
 // ___________________________________________________________________
 
@@ -25,6 +26,9 @@ const Header = () => {
         <Flex className="header-inner">
           <Link to="/" className="logo" aria-label="dotNFT, back to home">
             <S.Logo onClick={() => setNavOpen(false)}>
+              <div className="symbol">
+                <Logo />
+              </div>
               <Text className="wordmark" aria-label="dotNFT">
                 tetra
               </Text>

@@ -52,8 +52,11 @@ export const Logo = styled(Flex)`
 
   .symbol {
     margin-right: ${theme.space[3]};
-    height: 50px;
-    width: 50px;
+    
+    svg {
+      /* height: 50px; */
+      width: 33px;
+    }
   }
 `
 
