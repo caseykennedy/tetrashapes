@@ -4,21 +4,21 @@ module.exports = {
   // Banner
   bannerUrl: '',
 
-  siteTitle: 'Tetra', // Navigation and Site Title
-  siteTitleAlt: 'Tetra', // Alternative Site title for SEO
-  siteTitleShort: 'Tetra', // short_name for manifest
-  siteHeadline: 'Tetra', // Headline for schema.org JSONLD
+  siteTitle: 'Tetra / A digital studio for the decentralized web.', // Navigation and Site Title
+  siteTitleAlt: 'Building a new internet together.', // Alternative Site title for SEO
+  siteTitleShort: 'Tetra / A digital studio', // short_name for manifest
+  siteHeadline: 'A digital studio for the decentralized web.', // Headline for schema.org JSONLD
   siteUrl: 'http://tetrashapes.com', // Domain of your site. No trailing slash!
-  siteLanguage: 'Tetra', // Language Tag on <html> element
-  siteLogo: 'Tetra', // Used for SEO and manifest
-  siteDescription: 'Tetra',
+  siteLanguage: 'en-US', // Language Tag on <html> element
+  siteLogo: 'static/favicon.svg', // Used for SEO and manifest
+  siteDescription: 'Tetra / A digital studio for the decentralized web. We build decentralized web and native apps for web 3.0.',
 
   author: 'Tetra', // Author for schema.org JSONLD
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
-  userTwitter: 'Tetra', // Twitter Username
+  userTwitter: 'Tetrashapes', // Twitter Username
   ogSiteName: 'Tetra', // Facebook Site Name
-  ogLanguage: 'Tetra', // og:language
+  ogLanguage: 'en-US', // og:language
 
   googleTagID: 'GTM-56KNG2F',
 

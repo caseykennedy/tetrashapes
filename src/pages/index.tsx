@@ -1,4 +1,19 @@
-import HomePage from './HomePage'
+// Home page
+// ___________________________________________________________________
 
+import React from 'react'
 
-export default HomePage
+// Components
+import SEO from '../components/SEO'
+import HomePage from '../views/HomePage'
+
+// ___________________________________________________________________
+
+const Index = () => (
+  <>
+    <SEO />
+    <HomePage />
+  </>
+)
+
+export default Index

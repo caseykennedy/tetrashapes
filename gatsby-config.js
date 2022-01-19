@@ -107,7 +107,7 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: 'standalone',
-        icon: 'src/favicon.ico',
+        icon: 'static/favicon.svg',
         include_favicon: true,
       },
     },
