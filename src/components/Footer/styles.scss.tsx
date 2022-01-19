@@ -29,6 +29,7 @@ export const Footer = styled.footer`
     display: inline-block;
     border: ${theme.border};
     border-color: ${theme.colors.midgray};
+    border-radius: ${theme.borderRadius};
     color: ${theme.colors.midgray};
     padding: ${theme.space[2]} ${theme.space[4]};
 

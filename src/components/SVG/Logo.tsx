@@ -28,7 +28,10 @@ const Handshake = ({ fill }: Props) => (
         fill="white"
       />
     </g>
-    <path d="M61.0901 2L78.8469 102.647L117.03 85.9649" fill={theme.colors.midgray} />
+    <path
+      d="M61.0901 2L78.8469 102.647L117.03 85.9649"
+      fill={theme.colors.midgray}
+    />
     <path
       d="M61.0905 2L2 85.9649H117.03L61.0905 2Z"
       stroke="black"
