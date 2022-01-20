@@ -12,7 +12,7 @@ export const Footer = styled.footer`
   align-items: flex-end;
   justify-content: space-between;
 
-  color: ${theme.colors.midgray};
+  color: ${theme.colors.text};
   padding: ${theme.space[4]};
   width: 100%;
 
@@ -28,9 +28,9 @@ export const Footer = styled.footer`
   .contact {
     display: inline-block;
     border: ${theme.border};
-    border-color: ${theme.colors.midgray};
+    border-color: ${theme.colors.text};
     border-radius: ${theme.borderRadius};
-    color: ${theme.colors.midgray};
+    color: ${theme.colors.text};
     padding: ${theme.space[2]} ${theme.space[4]};
 
     &:hover {
