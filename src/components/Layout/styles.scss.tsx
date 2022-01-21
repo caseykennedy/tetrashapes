@@ -13,6 +13,34 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 
+  background-color: transparent;
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(255, 255, 255, 0.07) 25%,
+      rgba(255, 255, 255, 0.07) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(255, 255, 255, 0.07) 75%,
+      rgba(255, 255, 255, 0.07) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(255, 255, 255, 0.07) 25%,
+      rgba(255, 255, 255, 0.07) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(255, 255, 255, 0.07) 75%,
+      rgba(255, 255, 255, 0.07) 76%,
+      transparent 77%,
+      transparent
+    );
+  height: 100%;
+  background-size: ${theme.space[7]} ${theme.space[7]};
+
   position: absolute;
   top: 0;
   right: 0;
